@@ -21,7 +21,7 @@
         <nav class="mt-2 flex justify-between w-full">
             <div class="flex justify-start">
                 <a href="{{ route('homepage') }}" class="text-lg font-semibold hover:text-yellow-400 mx-4">Home</a>
-                <a href=""
+                <a href="{{ route('decisions') }}"
                     class="text-lg font-semibold hover:text-yellow-400 mx-4">Teams/Matches</a>
                 <a href=""
                     class="text-lg font-semibold hover:text-yellow-400 mx-4 text-red-700">Admin only</a>
