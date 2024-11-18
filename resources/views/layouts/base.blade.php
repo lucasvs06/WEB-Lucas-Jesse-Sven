@@ -14,10 +14,39 @@
 </head>
 
 <body class="bg-gray-100 text-gray-800">
-    <header class="bg-blue-600 text-white p-4 shadow-md">
+    <header class="bg-green-600 text-white p-4 shadow-md">
         <div class="container mx-auto">
-            <h1 class="text-3xl font-bold ml-4">Webshop.test</h1>
-        </div>
+            <h1 class="text-3xl font-bold ml-4">Pra c3</h1>
+
+        <nav class="mt-2 flex justify-between w-full">
+            <div class="flex justify-start">
+                <a href="{{ route('homepage') }}" class="text-lg font-semibold hover:text-yellow-400 mx-4">Home</a>
+                <a href=""
+                    class="text-lg font-semibold hover:text-yellow-400 mx-4">Teams/Matches</a>
+                <a href=""
+                    class="text-lg font-semibold hover:text-yellow-400 mx-4 text-red-700">Admin only</a>
+            </div>
+
+            <div class="flex justify-end">
+                @guest
+                    <a href="{{ route('login') }}" class="text-lg font-semibold hover:text-yellow-400 mx-4">Login</a>
+                    <a href="{{ route('register') }}"
+                        class="text-lg font-semibold hover:text-yellow-400 mx-4">Register</a>
+                @endguest
+                @auth
+                    <a href="" class="text-lg font-semibold hover:text-yellow-400 mx-4">My teams</a>
+
+
+                    <a href="{{ route('logout') }}" class="text-lg font-semibold hover:text-yellow-400 mx-4"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                @endauth
+            </div>
+        </nav>
     </header>
 
     <main class="container mx-auto p-4 my-8 bg-white shadow-md rounded-lg">
@@ -25,7 +54,7 @@
     </main>
 
     <div class="fixed bottom-0 left-0 w-full">
-        <footer class="bg-blue-600 text-white p-4">
+        <footer class="bg-green-600 text-white p-4">
             <div class="container mx-auto">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit nulla maxime dolorem sapiente, saepe
                     neque
