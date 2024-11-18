@@ -1,5 +1,6 @@
 <x-base-layout>
     <main class="container mx-auto px-4 py-8">
+
         <div class="grid grid-cols-3 gap-8">
 
             <!-- Left Column -->
