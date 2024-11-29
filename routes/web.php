@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\UserTeamsController;
@@ -35,8 +36,12 @@ Route::get('/decisions', function () {
     return view('decisions');
 })->name('decisions');
 
+Route::get('/teams/{team}/players', [PlayerController::class, 'index'])->name('players');
+
 Route::get('/teams', [TeamsController::class, 'index'])->name('teams');
 Route::get('/my-teams', [UserTeamsController::class, 'index'])->name('user.teams');
+
+
 
 Route::get('/matches', function () {
     return view('matches');

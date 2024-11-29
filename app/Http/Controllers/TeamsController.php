@@ -18,8 +18,11 @@ class TeamsController extends Controller
     }
 
     public function Store(Request $request){
+
+
         $newteam = new team();
         $newteam->name = $request->name;
+        $newteam->school = $request->school;
         $newteam->members = $request->members;
         $newteam->wins = $request->wins ?? 0;
         $newteam->losses = $request->losses ?? 0;
@@ -35,6 +38,7 @@ class TeamsController extends Controller
 
         public function update(Request $request, team $team) {
             $team->name = $request->name;
+            $team->school = $request->school;
             $team->members = $request->members;
             $team->wins = $request->wins ?? 0;
             $team->losses = $request->losses ?? 0;
