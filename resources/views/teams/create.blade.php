@@ -11,11 +11,6 @@
             <input type="text" id="name" name="name" class="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-300" required>
         </div>
 
-        <div class="mb-4">
-            <label for="school" class="block text-gray-700 font-semibold mb-2">School</label>
-            <input type="text" id="school" name="school" class="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-300" required>
-        </div>
-
         <!-- Members -->
         <div class="mb-4">
             <label for="members" class="block text-gray-700 font-semibold mb-2">Members</label>

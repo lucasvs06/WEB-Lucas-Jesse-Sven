@@ -46,20 +46,16 @@
                     <tbody>
                         @foreach ($teams as $team)
                             <tr class="border-b">
-                                <td class="py-4 px-6">
-                                    <a href="{{ route('players', $team->id)}}" class="flex-1 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 text-center">{{ $team->name }}</a>
-                                </td>
+                                <td class="py-4 px-6">{{ $team->name }}</td>
                                 <td class="py-4 px-6">{{ $team->members }}</td>
                                 <td class="py-4 px-6">{{ $team->wins }}</td>
                                 <td class="py-4 px-6">{{ $team->losses }}</td>
                                 <td class="py-4 px-6">{{ $team->creator_id }}</td>
                                 <td class="py-4 px-6 text-center">
                                     <!-- Edit Button -->
-                                    <a href="{{ route('teams.edit', $team->id) }}"
-                                        class="text-blue-600 hover:underline mr-2">Edit</a>
+                                    <a href="{{ route('teams.edit', $team->id) }}" class="text-blue-600 hover:underline mr-2">Edit</a>
                                     <!-- Delete Button -->
-                                    <form action="{{ route('teams.destroy', $team->id) }}" method="POST"
-                                        class="inline-block">
+                                    <form action="{{ route('teams.destroy', $team->id) }}" method="POST" class="inline-block">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="text-red-600 hover:underline"

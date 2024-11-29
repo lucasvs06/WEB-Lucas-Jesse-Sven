@@ -8,6 +8,10 @@
                 <div class="flex justify-between items-center mb-4">
                     <h1 class="text-2xl font-bold text-gray-700">Teams</h1>
 
+                    <a href="{{ route('teams.create') }}"
+                        class="text-lg font-semibold text-white bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md text-center shadow-md transition duration-200">
+                        Voeg je eigen team toe!
+                    </a>
 
                 </div>
                 <p class="flex text-gray-600 mb-6">a choice for you to see matches or teams.</p>
@@ -32,7 +36,6 @@
                     <thead>
                         <tr>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Name</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">School</th>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Members</th>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Wins</th>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Losses</th>
@@ -42,10 +45,7 @@
                     <tbody>
                         @foreach ($teams as $team)
                             <tr class="border-b">
-                                <td class="py-4 px-6">
-                                    <a href="{{ route('players')}}" class="flex-1 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 text-center">{{ $team->name }}</a>
-                                </td>
-                                <td class="py-4 px-6">{{ $team->school }}</td>
+                                <td class="py-4 px-6">{{ $team->name }}</td>
                                 <td class="py-4 px-6">{{ $team->members }}</td>
                                 <td class="py-4 px-6">{{ $team->wins }}</td>
                                 <td class="py-4 px-6">{{ $team->losses }}</td>
