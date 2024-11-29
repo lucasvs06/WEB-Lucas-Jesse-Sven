@@ -22,7 +22,10 @@ class TeamsController extends Controller
 
         $newteam = new team();
         $newteam->name = $request->name;
-        $newteam->points = $request->points ?? 0;
+        $newteam->school = $request->school;
+        $newteam->members = $request->members;
+        $newteam->wins = $request->wins ?? 0;
+        $newteam->losses = $request->losses ?? 0;
         $newteam->creator_id = auth()->id();
         $newteam->save();
 
@@ -35,7 +38,10 @@ class TeamsController extends Controller
 
         public function update(Request $request, team $team) {
             $team->name = $request->name;
-            $team->points = $request->points ?? 0;
+            $team->school = $request->school;
+            $team->members = $request->members;
+            $team->wins = $request->wins ?? 0;
+            $team->losses = $request->losses ?? 0;
             $team->creator_id = auth()->id();
             $team->save();
 

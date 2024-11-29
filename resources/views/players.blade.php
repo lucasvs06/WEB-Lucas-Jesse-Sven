@@ -32,26 +32,14 @@
                     <thead>
                         <tr>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Name</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">School</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Members</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Wins</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Losses</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Creator_id</th>
+                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Age</th>
+                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Weight (Kg)</th>
+                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Nationality</th>
+                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($teams as $team)
-                            <tr class="border-b">
-                                <td class="py-4 px-6">
-                                    <a href="{{ route('players')}}" class="flex-1 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 text-center">{{ $team->name }}</a>
-                                </td>
-                                <td class="py-4 px-6">{{ $team->school }}</td>
-                                <td class="py-4 px-6">{{ $team->members }}</td>
-                                <td class="py-4 px-6">{{ $team->wins }}</td>
-                                <td class="py-4 px-6">{{ $team->losses }}</td>
-                                <td class="py-4 px-6">{{ $team->creator_id }}</td>
-                            </tr>
-                        @endforeach
+                       
                     </tbody>
                 </table>
             </div>
