@@ -40,6 +40,7 @@
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Wins</th>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Losses</th>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Creator_id</th>
+                            <th class="py-3 px-6 text-center text-gray-700 font-semibold">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,6 +51,17 @@
                                 <td class="py-4 px-6">{{ $team->wins }}</td>
                                 <td class="py-4 px-6">{{ $team->losses }}</td>
                                 <td class="py-4 px-6">{{ $team->creator_id }}</td>
+                                <td class="py-4 px-6 text-center">
+                                    <!-- Edit Button -->
+                                    <a href="{{ route('teams.edit', $team->id) }}" class="text-blue-600 hover:underline mr-2">Edit</a>
+                                    <!-- Delete Button -->
+                                    <form action="{{ route('teams.destroy', $team->id) }}" method="POST" class="inline-block">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-red-600 hover:underline"
+                                            onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

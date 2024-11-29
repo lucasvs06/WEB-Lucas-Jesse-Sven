@@ -34,7 +34,7 @@
                         class="text-lg font-semibold hover:text-yellow-400 mx-4">Register</a>
                 @endguest
                 @auth
-                    <a href="" class="text-lg font-semibold hover:text-yellow-400 mx-4">My teams</a>
+                    <a href="{{ route('user.teams') }}" class="text-lg font-semibold hover:text-yellow-400 mx-4">My Teams</a>
 
 
                     <a href="{{ route('logout') }}" class="text-lg font-semibold hover:text-yellow-400 mx-4"

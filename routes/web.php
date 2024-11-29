@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TeamsController;
+use App\Http\Controllers\UserTeamsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,14 +35,20 @@ Route::get('/decisions', function () {
     return view('decisions');
 })->name('decisions');
 
-Route::get('/teams', function () {
-    return view('teams');
-})->name('teams');
+Route::get('/teams', [TeamsController::class, 'index'])->name('teams');
+Route::get('/my-teams', [UserTeamsController::class, 'index'])->name('user.teams');
 
 Route::get('/matches', function () {
     return view('matches');
 })->name('matches');
 
+Route::get('teams/create.php', [TeamsController::class, 'create'])->name('teams.create');
+Route::post('teams/create.php', [TeamsController::class, 'store'])->name('teams.store');
+
+Route::get('/teams/edit/{team}', [TeamsController::class, 'edit'])->name('teams.edit');
+Route::post('/teams/{team}', [TeamsController::class, 'update'])->name('teams.update');
+
+Route::delete('/teams/{team}', [TeamsController::class, 'destroy'])->name('teams.destroy');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
