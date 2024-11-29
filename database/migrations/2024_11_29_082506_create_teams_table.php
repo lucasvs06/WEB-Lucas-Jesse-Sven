@@ -13,11 +13,8 @@ return new class extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('school');
-            $table->integer('members')->default(0);;
-            $table->integer('wins')->default(0);
-            $table->integer('losses')->default(0);
+            $table->text('name');
+            $table->json('points')->default(0);
             $table->unsignedBigInteger('creator_id');
             $table->timestamps();
         });

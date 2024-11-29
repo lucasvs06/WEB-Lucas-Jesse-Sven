@@ -10,7 +10,7 @@
 
                     <a href="{{ route('teams.create') }}"
                         class="text-lg font-semibold text-white bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md text-center shadow-md transition duration-200">
-                        Voeg je eigen team toe!
+                        + Teams
                     </a>
 
                 </div>
@@ -36,9 +36,7 @@
                     <thead>
                         <tr>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Name</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Members</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Wins</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Losses</th>
+                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Points</th>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Creator_id</th>
                             <th class="py-3 px-6 text-center text-gray-700 font-semibold">Actions</th>
                         </tr>
@@ -47,11 +45,9 @@
                         @foreach ($teams as $team)
                             <tr class="border-b">
                                 <td class="py-4 px-6">
-                                    <a href="{{ route('players', $team->id)}}" class="flex-1 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 text-center">{{ $team->name }}</a>
+                                    <a href="#" class="flex-1 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 text-center">{{ $team->name }}</a>
                                 </td>
-                                <td class="py-4 px-6">{{ $team->members }}</td>
-                                <td class="py-4 px-6">{{ $team->wins }}</td>
-                                <td class="py-4 px-6">{{ $team->losses }}</td>
+                                <td class="py-4 px-6">{{ $team->points }}</td>
                                 <td class="py-4 px-6">{{ $team->creator_id }}</td>
                                 <td class="py-4 px-6 text-center">
                                     <!-- Edit Button -->

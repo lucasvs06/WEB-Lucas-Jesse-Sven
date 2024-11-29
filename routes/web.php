@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\UserTeamsController;
@@ -27,7 +26,6 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-
 Route::get('/user', function () {
     return view('user');
 })->name('user');
@@ -36,17 +34,16 @@ Route::get('/decisions', function () {
     return view('decisions');
 })->name('decisions');
 
-Route::get('/teams/{team}/players', [PlayerController::class, 'index'])->name('players');
-
-Route::get('/teams', [TeamsController::class, 'index'])->name('teams');
-Route::get('/my-teams', [UserTeamsController::class, 'index'])->name('user.teams');
-
-
-
 Route::get('/matches', function () {
     return view('matches');
 })->name('matches');
 
+//Teams
+Route::get('/teams', [TeamsController::class, 'index'])->name('teams');
+Route::get('/my-teams', [UserTeamsController::class, 'index'])->name('user.teams');
+
+
+//Teams crud
 Route::get('teams/create.php', [TeamsController::class, 'create'])->name('teams.create');
 Route::post('teams/create.php', [TeamsController::class, 'store'])->name('teams.store');
 
@@ -55,6 +52,8 @@ Route::post('/teams/{team}', [TeamsController::class, 'update'])->name('teams.up
 
 Route::delete('/teams/{team}', [TeamsController::class, 'destroy'])->name('teams.destroy');
 
+
+// Login crud
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
