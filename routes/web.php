@@ -56,4 +56,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('admin/', function(){
+    return "Je hebt goddelijke krachten";
+})->Middleware('auth', 'admin')->name('admin');
+
+Route::get('/adminDash', [TeamsController::class, 'index'])->name('admin.dash');
+
+
 require __DIR__.'/auth.php';

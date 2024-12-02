@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('matches', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('team1_id');
-            $table->unsignedInteger('team2_id');
+            $table->unsignedBigInteger('team1_id');
+            $table->unsignedBigInteger('team2_id');
             $table->integer('team1_score')->nullable();
             $table->integer('team2_score')->nullable();
             $table->text('field');
-            $table->unsignedInteger('referee_id');
+            $table->unsignedBigInteger('referee_id');
             $table->text('time');
             $table->timestamps();
         });

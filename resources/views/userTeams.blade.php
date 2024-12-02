@@ -37,8 +37,7 @@
                         <tr>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Name</th>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Members</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Wins</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Losses</th>
+                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Points</th>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Creator_id</th>
                             <th class="py-3 px-6 text-center text-gray-700 font-semibold">Actions</th>
                         </tr>
@@ -48,8 +47,7 @@
                             <tr class="border-b">
                                 <td class="py-4 px-6">{{ $team->name }}</td>
                                 <td class="py-4 px-6">{{ $team->members }}</td>
-                                <td class="py-4 px-6">{{ $team->wins }}</td>
-                                <td class="py-4 px-6">{{ $team->losses }}</td>
+                                <td class="py-4 px-6">{{ $team->points }}</td>
                                 <td class="py-4 px-6">{{ $team->creator_id }}</td>
                                 <td class="py-4 px-6 text-center">
                                     <!-- Edit Button -->

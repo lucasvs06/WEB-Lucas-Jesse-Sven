@@ -18,35 +18,42 @@
         <div class="container mx-auto">
             <h1 class="text-3xl font-bold ml-4">Pra c3</h1>
 
-        <nav class="mt-2 flex justify-between w-full">
-            <div class="flex justify-start">
-                <a href="{{ route('homepage') }}" class="text-lg font-semibold hover:text-yellow-400 mx-4">Home</a>
-                <a href="{{ route('decisions') }}"
-                    class="text-lg font-semibold hover:text-yellow-400 mx-4">Teams/Matches</a>
-                <a href=""
-                    class="text-lg font-semibold hover:text-yellow-400 mx-4 text-red-700">Admin only</a>
-            </div>
+            <nav class="mt-2 flex justify-between w-full">
+                <div class="flex justify-start">
+                    <a href="{{ route('homepage') }}" class="text-lg font-semibold hover:text-yellow-400 mx-4">Home</a>
+                    <a href="{{ route('decisions') }}"
+                        class="text-lg font-semibold hover:text-yellow-400 mx-4">Teams/Matches</a>
 
-            <div class="flex justify-end">
-                @guest
-                    <a href="{{ route('login') }}" class="text-lg font-semibold hover:text-yellow-400 mx-4">Login</a>
-                    <a href="{{ route('register') }}"
-                        class="text-lg font-semibold hover:text-yellow-400 mx-4">Register</a>
-                @endguest
-                @auth
-                    <a href="{{ route('user.teams') }}" class="text-lg font-semibold hover:text-yellow-400 mx-4">My Teams</a>
+                    @if (auth()->user() && auth()->user()->admin)
+                        <a href="{{route('admin.dash')}}"
+                            class="text-lg font-semibold hover:text-yellow-400 mx-4 text-red-700">
+                            Admin Table
+                        </a>
+                    @endif
+                </div>
+
+                    <div class="flex justify-end">
+                        @guest
+                            <a href="{{ route('login') }}"
+                                class="text-lg font-semibold hover:text-yellow-400 mx-4">Login</a>
+                            <a href="{{ route('register') }}"
+                                class="text-lg font-semibold hover:text-yellow-400 mx-4">Register</a>
+                        @endguest
+                        @auth
+                            <a href="{{ route('user.teams') }}" class="text-lg font-semibold hover:text-yellow-400 mx-4">My
+                                Teams</a>
 
 
-                    <a href="{{ route('logout') }}" class="text-lg font-semibold hover:text-yellow-400 mx-4"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        Logout
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                @endauth
-            </div>
-        </nav>
+                            <a href="{{ route('logout') }}" class="text-lg font-semibold hover:text-yellow-400 mx-4"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        @endauth
+                    </div>
+            </nav>
     </header>
 
     <main class="container mx-auto p-4 my-8 bg-white shadow-md rounded-lg">
