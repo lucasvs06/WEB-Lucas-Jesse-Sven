@@ -6,7 +6,7 @@
             <div class="col-span-2 bg-white shadow-md rounded p-6">
 
                 <div class="flex justify-between items-center mb-4">
-                    <h1 class="text-2xl font-bold text-gray-700">Your T eams</h1>
+                    <h1 class="text-2xl font-bold text-gray-700">Users (Admin version)</h1>
 
                     <a href="{{ route('teams.create') }}"
                         class="text-lg font-semibold text-white bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md text-center shadow-md transition duration-200">
@@ -14,13 +14,8 @@
                     </a>
 
                 </div>
-                <p class="flex text-gray-600 mb-6">a choice for you to see matches or teams.</p>
-                <div class="flex space-x-4">
-                    <a href="{{ route('matches') }}"
-                        class="flex-1 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 text-center">Matches</a>
-                    <a href="{{ route('teams') }}"
-                        class="flex-1 bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 text-center">Teams</a>
-                </div>
+                <p class="flex text-gray-600 mb-6">All the teams! for you to edit and delete.</p>
+
             </div>
 
             <!-- Right Section -->

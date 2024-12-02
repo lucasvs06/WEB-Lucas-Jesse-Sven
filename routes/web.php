@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\UserTeamsController;
@@ -60,7 +61,13 @@ Route::get('admin/', function(){
     return "Je hebt goddelijke krachten";
 })->Middleware('auth', 'admin')->name('admin');
 
-Route::get('/adminDash', [TeamsController::class, 'index'])->name('admin.dash');
+
+Route::get('/admin/adminDash', function () {
+    return view('admin/adminDash');
+})->name('admin.dash');
+
+
+Route::get('/admin/adminTeamDash', [AdminController::class, 'Teams'])->name('admin.teams');
 
 
 require __DIR__.'/auth.php';
