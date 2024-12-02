@@ -68,6 +68,8 @@ Route::get('/admin/adminDash', function () {
 
 
 Route::get('/admin/adminTeamDash', [AdminController::class, 'Teams'])->name('admin.teams');
+Route::get('/admin/adminUserDash', [AdminController::class, 'Users'])->name('admin.users');
+
 
 
 require __DIR__.'/auth.php';

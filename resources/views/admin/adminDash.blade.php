@@ -6,7 +6,7 @@
     <div class="bg-white shadow-lg rounded-lg p-10 m-10 w-full max-w-4xl text-center">
         <h1 class="text-2xl font-bold text-gray-800 mb-6">Admin Dashboard</h1>
         <div class="space-y-4">
-            <a href="/manage-users"
+            <a href="{{route('admin.users')}}"
                class="block bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
                 Manage Users
             </a>

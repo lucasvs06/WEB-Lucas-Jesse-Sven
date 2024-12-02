@@ -8,20 +8,23 @@
                 <div class="flex justify-between items-center mb-4">
                     <h1 class="text-2xl font-bold text-gray-700">Teams (Admin version)</h1>
 
-                    <a href="{{ route('teams.create') }}"
-                        class="text-lg font-semibold text-white bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md text-center shadow-md transition duration-200">
-                        + Team
-                    </a>
-
                 </div>
                 <p class="flex text-gray-600 mb-6">All the teams! for you to edit and delete.</p>
 
             </div>
 
-            <!-- Right Section -->
-            <div class="bg-white shadow-md rounded p-6">
-                <h2 class="text-lg font-bold mb-4">Coins</h2>
-                <p class="text-gray-700">Your coin balance will be displayed here.</p>
+              <!-- Right Section -->
+              <div class="bg-white shadow-md rounded p-6">
+                <div class="space-y-4">
+                    <a href="{{route('admin.users')}}"
+                       class="block bg-blue-500 text-white py-2 rounded hover:bg-blue-600 text-center">
+                        Manage Users
+                    </a>
+                    <a href="{{route('admin.teams')}}"
+                       class="block bg-green-500 text-white py-2 rounded hover:bg-green-600 text-center">
+                        View all teams
+                    </a>
+                </div>
             </div>
         </div>
 
