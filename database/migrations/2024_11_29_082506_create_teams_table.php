@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('members');
-            $table->integer('wins')->default(0);
-            $table->integer('losses')->default(0);
+            $table->integer('points')->nullable();
             $table->unsignedBigInteger('creator_id');
             $table->timestamps();
         });
