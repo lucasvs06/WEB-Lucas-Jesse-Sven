@@ -6,9 +6,9 @@
             <!-- Left Column -->
             <div class="col-span-2 bg-white p-6">
 
-                <h2 class="text-2xl font-bold mb-2">Welkom</h2>
+                <h2 class="text-2xl font-bold mb-2">Welcome</h2>
                 <p class="text-gray-700 pb-8">
-                    Deze website is gemaakt voor het zien van matches en het bieden op teams voor een leuke tijd.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci laudantium accusamus assumenda inventore a dolorum accusantium,
                 </p>
 
                 <h3 class="font-bold text-lg ">Title 1</h3>

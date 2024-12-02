@@ -22,7 +22,7 @@
                 <div class="flex justify-start">
                     <a href="{{ route('homepage') }}" class="text-lg font-semibold hover:text-yellow-400 mx-4">Home</a>
                     <a href="{{ route('decisions') }}"
-                        class="text-lg font-semibold hover:text-yellow-400 mx-4">Teams/Matches</a>
+                        class="text-lg font-semibold hover:text-yellow-400 mx-4">Teams / Tournaments</a>
 
                     @if (auth()->user() && auth()->user()->admin)
                         <a href="{{route('admin.dash')}}"

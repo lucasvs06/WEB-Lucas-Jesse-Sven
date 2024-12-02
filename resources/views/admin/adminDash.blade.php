@@ -7,20 +7,20 @@
         <h1 class="text-2xl font-bold text-gray-800 mb-6">Admin Dashboard</h1>
         <div class="space-y-4">
             <a href="{{route('admin.users')}}"
-               class="block bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
+               class="block bg-red-500 text-white py-2 rounded hover:bg-red-600">
                 Manage Users
             </a>
             <a href="{{route('admin.teams')}}"
                class="block bg-green-500 text-white py-2 rounded hover:bg-green-600">
-                View all teams
+                Manage Teams
             </a>
-            <a href="/settings"
-               class="block bg-yellow-500 text-white py-2 rounded hover:bg-yellow-600">
-                Settings
+            <a href="{{route('tournaments.dash')}}"
+               class="block bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
+                Manage Tournaments
             </a>
             <a href="/logout"
-               class="block bg-red-500 text-white py-2 rounded hover:bg-red-600">
-                Logout
+               class="block bg-yellow-500 text-white py-2 rounded hover:bg-yellow-600">
+                Other
             </a>
         </div>
     </div>
