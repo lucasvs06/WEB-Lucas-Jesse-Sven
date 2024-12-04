@@ -37,7 +37,7 @@
                             <tr class="border-b">
                                 <td class="py-4 px-6">{{ $match->team1_id }}</td>
                                 <td class="py-4 px-6">{{ $match->team2_id }}</td>
-                                <td class="py-4 px-6">{{ $match->team1_score }} - {{ $team->team2_score }}</td>
+                                <td class="py-4 px-6">{{ $match->team1_score }} - {{ $match->team2_score }}</td>
                                 <td class="py-4 px-6">{{ $match->field }}</td>
                                 <td class="py-4 px-6">{{ $match->referee_id }}</td>
                                 <td class="py-4 px-6">{{ $match->time }}</td>
