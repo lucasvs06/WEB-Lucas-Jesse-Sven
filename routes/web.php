@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MatchController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\UserTeamsController;
@@ -39,9 +40,8 @@ Route::get('/decisions', function () {
 Route::get('/teams', [TeamsController::class, 'index'])->name('teams');
 Route::get('/my-teams', [UserTeamsController::class, 'index'])->name('user.teams');
 
-Route::get('/tournaments', function () {
-    return view('tournaments');
-})->name('tournaments');
+Route::get('/tournaments', [MatchController::class, 'ShowMatches' ])->name('tournaments');
+
 
 Route::get('teams/create.php', [TeamsController::class, 'create'])->name('teams.create');
 Route::post('teams/create.php', [TeamsController::class, 'store'])->name('teams.store');
@@ -69,6 +69,8 @@ Route::get('/admin/adminDash', function () {
 Route::get('/admin/adminTournamentsDash', function () {
     return view('admin/adminTournamentsDash');
 })->name('tournaments.dash');
+
+Route::get('//admin/adminTournamentsDash', [MatchController::class, 'ShowMatches' ])->name('tournaments.dash');
 
 Route::get('/admin/adminTeamDash', [AdminController::class, 'Teams'])->name('admin.teams');
 Route::get('/admin/adminUserDash', [AdminController::class, 'Users'])->name('admin.users');

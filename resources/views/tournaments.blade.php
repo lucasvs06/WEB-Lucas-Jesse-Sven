@@ -18,5 +18,35 @@
                 <p class="text-gray-700">Your coin balance will be displayed here.</p>
             </div>
         </div>
+
+        <div class="bg-white shadow-md rounded p-10">
+            <div class="overflow-x-auto">
+                <table class="min-w-full mb-5 rounded-lg">
+                    <thead>
+                        <tr>
+                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Team 1</th>
+                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Team 2</th>
+                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Score</th>
+                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Field</th>
+                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Referee</th>
+                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($matches as $match)
+                            <tr class="border-b">
+                                <td class="py-4 px-6">{{ $match->team1_id }}</td>
+                                <td class="py-4 px-6">{{ $match->team2_id }}</td>
+                                <td class="py-4 px-6">{{ $match->team1_score }} - {{ $team->team2_score }}</td>
+                                <td class="py-4 px-6">{{ $match->field }}</td>
+                                <td class="py-4 px-6">{{ $match->referee_id }}</td>
+                                <td class="py-4 px-6">{{ $match->time }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+
     </main>
 </x-base-layout>
