@@ -64,11 +64,11 @@ Route::get('admin/', function(){
 
 Route::get('/admin/adminDash', function () {
     return view('admin/adminDash');
-})->name('admin.dash');
+})->Middleware('auth', 'admin')->name('admin.dash');
 
 Route::get('/admin/adminTournamentsDash', function () {
     return view('admin/adminTournamentsDash');
-})->name('tournaments.dash');
+})->Middleware('auth', 'admin')->name('tournaments.dash');
 
 Route::get('//admin/adminTournamentsDash', [MatchController::class, 'ShowMatches' ])->name('tournaments.dash');
 
