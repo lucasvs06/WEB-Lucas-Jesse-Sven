@@ -66,9 +66,6 @@ Route::get('/admin/adminDash', function () {
     return view('admin/adminDash');
 })->name('admin.dash');
 
-Route::get('/admin/adminTournamentsDash', function () {
-    return view('admin/adminTournamentsDash');
-})->name('tournaments.dash');
 
 Route::get('/admin/adminTournamentsDash', [AdminController::class, 'Matches' ])->name('tournaments.dash');
 Route::get('/admin/adminTeamDash', [AdminController::class, 'Teams'])->name('admin.teams');
@@ -77,9 +74,10 @@ Route::get('/admin/adminUserDash', [AdminController::class, 'Users'])->name('adm
 Route::get('/admin/user/edit/{user}', [TeamsController::class, 'edit'])->name('user.edit');
 Route::post('/admin/{user}', [TeamsController::class, 'update'])->name('user.update');
 
-Route::get('admin/matches/create.php', [AdminController::class, 'CreateMatch'])->name(name: 'match.create');
-Route::post('admin/matches/create.php', [AdminController::class, 'store'])->name('match.store');
+Route::get('admin/matches/create.php', [AdminController::class, 'CreateMatch'])->name( 'match.create');
+Route::post('admin/matches/create.php', [AdminController::class, 'StoreMatch'])->name('match.store');
 
+Route::delete('admin/', [AdminController::class, 'DestroyMatch'])->name('match.destroy');
 
 
 

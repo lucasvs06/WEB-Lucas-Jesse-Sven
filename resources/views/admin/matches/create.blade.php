@@ -1,13 +1,13 @@
 <x-base-layout>
-    <form action="#" method="POST" class="max-w-md mx-auto bg-white p-6 rounded shadow-md">
+    <form action="{{route('match.store')}}" method="POST" class="max-w-md mx-auto bg-white p-6 rounded shadow-md">
         <h2 class="text-2xl font-bold mb-4">Create a Match</h2>
 
         <!-- CSRF Token -->
         @csrf
 
         <div class="mb-4">
-            <label for="team1" class="block text-gray-700 font-bold mb-2">Team 1</label>
-            <select name="team1" id="team1" class="w-full border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-300">
+            <label for="team1_id" class="block text-gray-700 font-bold mb-2">Team 1</label>
+            <select name="team1_id" id="team1_id" class="w-full border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-300">
                 @foreach ($teams as $team)
                     <option value="{{ $team->id }}">{{ $team->name }}</option>
                 @endforeach
@@ -15,8 +15,8 @@
         </div>
 
         <div class="mb-4">
-            <label for="team2" class="block text-gray-700 font-bold mb-2">Team 2</label>
-            <select name="team2" id="team2" class="w-full border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-300">
+            <label for="team2_id" class="block text-gray-700 font-bold mb-2">Team 2</label>
+            <select name="team2_id" id="team2_id" class="w-full border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-300">
                 @foreach ($teams as $team)
                     <option value="{{ $team->id }}">{{ $team->name }}</option>
                 @endforeach
@@ -29,8 +29,8 @@
         </div>
 
         <div class="mb-4">
-            <label for="referee" class="block text-gray-700 font-bold mb-2">Referee</label>
-            <select name="referee" id="referee" class="w-full border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-300">
+            <label for="referee_id" class="block text-gray-700 font-bold mb-2">Referee</label>
+            <select name="referee_id" id="referee_id" class="w-full border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-300">
                 @foreach ($users as $user)
                     <option value="{{ $user->id }}">{{ $user->name }}</option>
                 @endforeach

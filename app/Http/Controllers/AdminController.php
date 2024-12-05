@@ -51,5 +51,25 @@ class AdminController extends Controller
 
         return(view('admin.matches.create', ['teams' => $teams], ['users' => $users]));
     }
+    public function StoreMatch(Request $request){
+        $newmatch = new Matches();
+        $newmatch->team1_id = $request->team1_id ?? 0;
+        $newmatch->team2_id = $request->team2_id ?? 0;
+        $newmatch->team1_score = $request->team1_score ?? 0;
+        $newmatch->team2_score = $request->team2_score ?? 0;
+        $newmatch->field = $request->field;
+        $newmatch->referee_id = $request->referee_id ?? 0;
+        $newmatch->time = $request->time;
+        $newmatch->save();
+
+        return redirect()->route('tournaments.dash');
+    }
+
+    public function DestroyMatch(Matches $match){
+        $match->delete();
+        return redirect()->route('tournaments.dash');
+    }
+
+
 
 }

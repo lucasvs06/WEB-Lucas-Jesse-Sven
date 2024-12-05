@@ -40,21 +40,34 @@
                         <tr>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Team 1</th>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Team 2</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Score</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Field</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Referee</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Time</th>
+                            <th class="py-3 px-6 text-center text-gray-700 font-semibold">Score</th>
+                            <th class="py-3 px-6 text-center text-gray-700 font-semibold">Field</th>
+                            <th class="py-3 px-6 text-center text-gray-700 font-semibold">Referee</th>
+                            <th class="py-3 px-6 text-center text-gray-700 font-semibold">Time</th>
+                            <th class="py-3 px-6 text-center text-gray-700 font-semibold">Actions</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($matches as $match)
                             <tr class="border-b">
-                                <td class="py-4 px-6">{{ $match->team1_id }}</td>
-                                <td class="py-4 px-6">{{ $match->team2_id }}</td>
-                                <td class="py-4 px-6">{{ $match->team1_score }} - {{ $match->team2_score }}</td>
-                                <td class="py-4 px-6">{{ $match->field }}</td>
-                                <td class="py-4 px-6">{{ $match->referee_id }}</td>
-                                <td class="py-4 px-6">{{ $match->time }}</td>
+                                <td class="py-4 px-6">{{ $match->team1->name ?? 'No team assigned' }}</td>
+                                <td class="py-4 px-6">{{ $match->team2->name ?? 'No team assigned' }}</td>
+                                <td class="py-4 px-6 text-center">{{ $match->team1_score }} - {{ $match->team2_score }}</td>
+                                <td class="py-4 px-6 text-center">{{ $match->field }}</td>
+                                <td class="py-4 px-6 text-center">{{ $match->referee_id }}</td>
+                                <td class="py-4 px-6 text-center" >{{ $match->time }}</td>
+                                <td class="py-4 px-6 text-center">
+                                    <!-- Edit Button -->
+                                    <a href="#" class="text-blue-600 hover:underline mr-2">Edit</a>
+                                    <!-- Delete Button -->
+                                    <form action="{{route('match.destroy', $match->id)}}" method="POST" class="inline-block">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-red-600 hover:underline"
+                                            onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
