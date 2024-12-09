@@ -55,11 +55,11 @@
                                 <td class="py-4 px-6">{{ $match->team2->name ?? 'No team assigned' }}</td>
                                 <td class="py-4 px-6 text-center">{{ $match->team1_score }} - {{ $match->team2_score }}</td>
                                 <td class="py-4 px-6 text-center">{{ $match->field }}</td>
-                                <td class="py-4 px-6 text-center">{{ $match->referee_id }}</td>
+                                <td class="py-4 px-6 text-center">{{ $match->referee->name ?? 'No referee assigned' }}</td>
                                 <td class="py-4 px-6 text-center" >{{ $match->time }}</td>
                                 <td class="py-4 px-6 text-center">
                                     <!-- Edit Button -->
-                                    <a href="#" class="text-blue-600 hover:underline mr-2">Edit</a>
+                                    <a href="{{route('match.edit', $match->id)}}" class="text-blue-600 hover:underline mr-2">Edit</a>
                                     <!-- Delete Button -->
                                     <form action="{{route('match.destroy', $match->id)}}" method="POST" class="inline-block">
                                         @csrf

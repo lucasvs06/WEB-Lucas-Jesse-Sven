@@ -9,6 +9,10 @@ class Matches extends Model
 {
     use HasFactory;
 
+    public function referee() {
+        return $this->belongsTo(User::class, 'referee_id');
+    }
+
      public function team1()
     {
         return $this->belongsTo(Team::class, 'team1_id');

@@ -74,10 +74,13 @@ Route::get('/admin/adminUserDash', [AdminController::class, 'Users'])->name('adm
 Route::get('/admin/user/edit/{user}', [TeamsController::class, 'edit'])->name('user.edit');
 Route::post('/admin/{user}', [TeamsController::class, 'update'])->name('user.update');
 
-Route::get('admin/matches/create.php', [AdminController::class, 'CreateMatch'])->name( 'match.create');
-Route::post('admin/matches/create.php', [AdminController::class, 'StoreMatch'])->name('match.store');
+Route::get('admin/matches/create', [AdminController::class, 'CreateMatch'])->name( 'match.create');
+Route::post('admin/matches/create', [AdminController::class, 'StoreMatch'])->name('match.store');
 
-Route::delete('admin/', [AdminController::class, 'DestroyMatch'])->name('match.destroy');
+Route::get('admin/matches/edit/{match}', [AdminController::class, 'EditMatch'])->name('match.edit');
+Route::post('admin/matches/edit/{match}', [AdminController::class, 'UpdateMatch'])->name('match.update');
+
+Route::delete('admin/matches/{match}', [AdminController::class, 'DestroyMatch'])->name('match.destroy');
 
 
 

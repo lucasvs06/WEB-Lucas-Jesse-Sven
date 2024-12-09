@@ -65,6 +65,25 @@ class AdminController extends Controller
         return redirect()->route('tournaments.dash');
     }
 
+    public function EditMatch(Matches $match) {
+        $teams = team::all();
+        $users = User::where('admin', 1)->get();
+        return view('admin.matches.edit', ['teams' => $teams], ['users' => $users] )->with('match', $match);
+    }
+
+        public function UpdateMatch(Request $request, Matches $match) {
+            $match->team1_id = $request->team1_id;
+            $match->team2_id = $request->team2_id;
+            $match->team1_score = $request->team1_score ?? 0;
+            $match->team2_score = $request->team2_score ?? 0;
+            $match->field = $request->field;
+            $match->referee_id = $request->referee_id;
+            $match->time = $request->time;
+            $match->save();
+
+            return redirect()->route('tournaments.dash');;
+        }
+
     public function DestroyMatch(Matches $match){
         $match->delete();
         return redirect()->route('tournaments.dash');
