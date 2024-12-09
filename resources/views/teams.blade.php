@@ -44,7 +44,7 @@
                                 <td class="py-4 px-6">{{ $team->name }}</td>
                                 <td class="py-4 px-6">{{ $team->members }}</td>
                                 <td class="py-4 px-6">{{ $team->points }}</td>
-                                <td class="py-4 px-6">{{ $team->creator_id }}</td>
+                                <td class="py-4 px-6">{{ $team->creator->name }}</td>
                             </tr>
                         @endforeach
                     </tbody>

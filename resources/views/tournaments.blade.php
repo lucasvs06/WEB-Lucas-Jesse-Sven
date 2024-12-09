@@ -29,9 +29,9 @@
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Team 1</th>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Team 2</th>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Score</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Field</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Referee</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Time</th>
+                            <th class="py-3 px-6 text-center text-gray-700 font-semibold">Field</th>
+                            <th class="py-3 px-6 text-center text-gray-700 font-semibold">Referee</th>
+                            <th class="py-3 px-6 text-center text-gray-700 font-semibold">Time</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,9 +40,9 @@
                                 <td class="py-4 px-6">{{ $match->team1->name ?? 'No team assigned' }}</td>
                                 <td class="py-4 px-6">{{ $match->team2->name ?? 'No team assigned' }}</td>
                                 <td class="py-4 px-6">{{ $match->team1_score }} - {{ $match->team2_score }}</td>
-                                <td class="py-4 px-6">{{ $match->field }}</td>
-                                <td class="py-4 px-6">{{ $match->referee_id }}</td>
-                                <td class="py-4 px-6">{{ $match->time }}</td>
+                                <td class="py-4 px-6 text-center">{{ $match->field }}</td>
+                                <td class="py-4 px-6 text-center">{{ $match->referee->name ?? 'No referee assigned' }}</td>
+                                <td class="py-4 px-6 text-center">{{ $match->time }}</td>
                             </tr>
                         @endforeach
                     </tbody>
