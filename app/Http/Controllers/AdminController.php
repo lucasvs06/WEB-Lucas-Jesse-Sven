@@ -34,7 +34,7 @@ class AdminController extends Controller
         public function update(Request $request, user $user) {
             $user->name = $request->name;
             $user->email = $request->email;
-            $user->admin = $request->admin;
+            $user->admin = $request->has('admin') ? 1 : 0; // Gebruik de checkbox om de admin-status in te stellen
             $user->save();
 
             return redirect()->route('admin.users');;
