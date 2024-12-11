@@ -59,7 +59,7 @@
                                 <td class="py-4 px-6 text-center">{{ $user->updated_at }}</td>
                                 <td class="py-4 px-6 text-center">
                                     <!-- Edit Button -->
-                                    <a href="#" class="text-blue-600 hover:underline mr-2">Edit</a>
+                                    <a href="{{ route('user.edit', $user->id) }}" class="text-blue-600 hover:underline mr-2">Edit</a>
                                     <!-- Delete Button -->
                                     <form action="#" method="POST" class="inline-block">
                                         @csrf

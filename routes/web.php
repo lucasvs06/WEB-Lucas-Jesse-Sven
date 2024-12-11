@@ -71,8 +71,8 @@ Route::get('/admin/adminTournamentsDash', [AdminController::class, 'Matches' ])-
 Route::get('/admin/adminTeamDash', [AdminController::class, 'Teams'])->name('admin.teams');
 Route::get('/admin/adminUserDash', [AdminController::class, 'Users'])->name('admin.users');
 
-Route::get('/admin/user/edit/{user}', [TeamsController::class, 'edit'])->name('user.edit');
-Route::post('/admin/{user}', [TeamsController::class, 'update'])->name('user.update');
+Route::get('/admin/user/edit/{user}', [AdminController::class, 'edit'])->name('user.edit');
+Route::post('/admin/{user}', [AdminController::class, 'update'])->name('user.update');
 
 Route::get('admin/matches/create', [AdminController::class, 'CreateMatch'])->name( 'match.create');
 Route::post('admin/matches/create', [AdminController::class, 'StoreMatch'])->name('match.store');
