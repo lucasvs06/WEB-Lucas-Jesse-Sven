@@ -49,4 +49,8 @@ class User extends Authenticatable
             'is_admin' => 'boolean',
         ];
     }
+    public function isAdmin()
+    {
+        return $this->admin === 1; // Controleer of de gebruiker admin is
+    }
 }
