@@ -5,6 +5,7 @@
         <!-- CSRF Token -->
         @csrf
 
+        
         <!-- Team Name -->
         <div class="mb-4">
             <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>

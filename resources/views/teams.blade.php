@@ -33,18 +33,18 @@
                     <thead>
                         <tr>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Name</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Members</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Points</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Creator_id</th>
+                            <th class="py-3 px-6 text-center text-gray-700 font-semibold">Members</th>
+                            <th class="py-3 px-6 text-center text-gray-700 font-semibold">Points</th>
+                            <th class="py-3 px-6 text-center text-gray-700 font-semibold">Creator</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($teams as $team)
                             <tr class="border-b">
                                 <td class="py-4 px-6">{{ $team->name }}</td>
-                                <td class="py-4 px-6">{{ $team->members }}</td>
-                                <td class="py-4 px-6">{{ $team->points }}</td>
-                                <td class="py-4 px-6">{{ $team->creator->name }}</td>
+                                <td class="py-4 px-6 text-center">{{ $team->members }}</td>
+                                <td class="py-4 px-6 text-center">{{ $team->points }}</td>
+                                <td class="py-4 px-6 text-center">{{ $team->creator->name }}</td>
                             </tr>
                         @endforeach
                     </tbody>
