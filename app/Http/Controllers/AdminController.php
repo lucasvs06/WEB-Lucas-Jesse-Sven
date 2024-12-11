@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Matches;
 use App\Models\team;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -18,6 +19,12 @@ class AdminController extends Controller
     public function Users(){
         $users = User::all();
         return view('/admin/adminUserDash', ["users" => $users]);
+    }
+
+    public function Matches()
+    {
+        $matches = Matches::all();
+        return view('/admin/adminTournamentsDash', ["matches" => $matches]);
     }
 
     public function edit(User $user) {
@@ -37,4 +44,51 @@ class AdminController extends Controller
         $user->delete();
         return redirect()->route('admin.users');
     }
+
+    public function CreateMatch(){
+        $teams = team::all();
+        $users = User::where('admin', 1)->get();
+
+        return(view('admin.matches.create', ['teams' => $teams], ['users' => $users]));
+    }
+    public function StoreMatch(Request $request){
+        $newmatch = new Matches();
+        $newmatch->team1_id = $request->team1_id ?? 0;
+        $newmatch->team2_id = $request->team2_id ?? 0;
+        $newmatch->team1_score = $request->team1_score ?? 0;
+        $newmatch->team2_score = $request->team2_score ?? 0;
+        $newmatch->field = $request->field;
+        $newmatch->referee_id = $request->referee_id ?? 0;
+        $newmatch->time = $request->time;
+        $newmatch->save();
+
+        return redirect()->route('tournaments.dash');
+    }
+
+    public function EditMatch(Matches $match) {
+        $teams = team::all();
+        $users = User::where('admin', 1)->get();
+        return view('admin.matches.edit', ['teams' => $teams], ['users' => $users] )->with('match', $match);
+    }
+
+        public function UpdateMatch(Request $request, Matches $match) {
+            $match->team1_id = $request->team1_id;
+            $match->team2_id = $request->team2_id;
+            $match->team1_score = $request->team1_score ?? 0;
+            $match->team2_score = $request->team2_score ?? 0;
+            $match->field = $request->field;
+            $match->referee_id = $request->referee_id;
+            $match->time = $request->time;
+            $match->save();
+
+            return redirect()->route('tournaments.dash');;
+        }
+
+    public function DestroyMatch(Matches $match){
+        $match->delete();
+        return redirect()->route('tournaments.dash');
+    }
+
+
+
 }

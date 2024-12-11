@@ -38,9 +38,9 @@
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Id</th>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Name</th>
                             <th class="py-3 px-6 text-left text-gray-700 font-semibold">Email</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold">Admin</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold w-64">Created at</th>
-                            <th class="py-3 px-6 text-left text-gray-700 font-semibold w-64">Updated at</th>
+                            <th class="py-3 px-6 text-center text-gray-700 font-semibold">Admin</th>
+                            <th class="py-3 px-6 text-center text-gray-700 font-semibold w-64">Created at</th>
+                            <th class="py-3 px-6 text-center text-gray-700 font-semibold w-64">Updated at</th>
                             <th class="py-3 px-6 text-center text-gray-700 font-semibold w-64">Actions</th>
                         </tr>
                     </thead>
@@ -50,9 +50,13 @@
                                 <td class="py-4 px-6">{{ $user->id }}</td>
                                 <td class="py-4 px-6">{{ $user->name }}</td>
                                 <td class="py-4 px-6">{{ $user->email }}</td>
-                                <td class="py-4 px-6">{{ $user->admin }}</td>
-                                <td class="py-4 px-6">{{ $user->created_at }}</td>
-                                <td class="py-4 px-6">{{ $user->updated_at }}</td>
+
+                                <td class="py-4 px-6 text-center">
+                                    {{ $user->admin ? 'Yes' : 'No' }}
+                                </td>
+
+                                <td class="py-4 px-6 text-center">{{ $user->created_at }}</td>
+                                <td class="py-4 px-6 text-center">{{ $user->updated_at }}</td>
                                 <td class="py-4 px-6 text-center">
                                     <!-- Edit Button -->
                                     <a href="#" class="text-blue-600 hover:underline mr-2">Edit</a>

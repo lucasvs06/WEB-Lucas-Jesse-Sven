@@ -14,7 +14,7 @@
 </head>
 
 <body class="bg-gray-100 text-gray-800">
-    <header class="bg-green-600 text-white p-4 shadow-md">
+    <header class="bg-green-800 text-white p-4 shadow-md">
         <div class="container mx-auto">
             <h1 class="text-3xl font-bold ml-4">Pra c3</h1>
 
@@ -61,7 +61,7 @@
     </main>
 
     <div class="fixed bottom-0 left-0 w-full">
-        <footer class="bg-green-600 text-white p-4">
+        <footer class="bg-green-800 text-white p-4">
             <div class="container mx-auto">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit nulla maxime dolorem sapiente, saepe
                     neque

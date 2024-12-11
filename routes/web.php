@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MatchController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\UserTeamsController;
@@ -39,9 +40,8 @@ Route::get('/decisions', function () {
 Route::get('/teams', [TeamsController::class, 'index'])->name('teams');
 Route::get('/my-teams', [UserTeamsController::class, 'index'])->name('user.teams');
 
-Route::get('/tournaments', function () {
-    return view('tournaments');
-})->name('tournaments');
+Route::get('/tournaments', [MatchController::class, 'ShowMatches' ])->name('tournaments');
+
 
 Route::get('teams/create.php', [TeamsController::class, 'create'])->name('teams.create');
 Route::post('teams/create.php', [TeamsController::class, 'store'])->name('teams.store');
@@ -64,17 +64,23 @@ Route::get('admin/', function(){
 
 Route::get('/admin/adminDash', function () {
     return view('admin/adminDash');
-})->Middleware('auth', 'admin')->name('admin.dash');
+})->name('admin.dash');
 
-Route::get('/admin/adminTournamentsDash', function () {
-    return view('admin/adminTournamentsDash');
-})->Middleware('auth', 'admin')->name('tournaments.dash');
 
+Route::get('/admin/adminTournamentsDash', [AdminController::class, 'Matches' ])->name('tournaments.dash');
 Route::get('/admin/adminTeamDash', [AdminController::class, 'Teams'])->name('admin.teams');
 Route::get('/admin/adminUserDash', [AdminController::class, 'Users'])->name('admin.users');
 
 Route::get('/admin/user/edit/{user}', [TeamsController::class, 'edit'])->name('user.edit');
 Route::post('/admin/{user}', [TeamsController::class, 'update'])->name('user.update');
+
+Route::get('admin/matches/create', [AdminController::class, 'CreateMatch'])->name( 'match.create');
+Route::post('admin/matches/create', [AdminController::class, 'StoreMatch'])->name('match.store');
+
+Route::get('admin/matches/edit/{match}', [AdminController::class, 'EditMatch'])->name('match.edit');
+Route::post('admin/matches/edit/{match}', [AdminController::class, 'UpdateMatch'])->name('match.update');
+
+Route::delete('admin/matches/{match}', [AdminController::class, 'DestroyMatch'])->name('match.destroy');
 
 
 
