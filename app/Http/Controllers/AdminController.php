@@ -46,11 +46,25 @@ class AdminController extends Controller
     }
 
     public function CreateMatch(){
-        $teams = team::all();
-        $users = User::where('admin', 1)->get();
+        $teams = Team::all();
 
-        return(view('admin.matches.create', ['teams' => $teams], ['users' => $users]));
+        // Controleer of er genoeg teams zijn
+        if ($teams->count() < 2) {
+            return redirect()->back()->withErrors('Er moeten minstens twee teams beschikbaar zijn om een match te maken.');
+        }
+
+        // Selecteer twee willekeurige teams
+        $team1 = $teams->random();
+        do {
+            $team2 = $teams->random();
+        } while ($team1->id === $team2->id);
+
+        return view('admin.matches.create', [
+            'team1' => $team1,
+            'team2' => $team2,
+        ]);
     }
+    
     public function StoreMatch(Request $request){
         $newmatch = new Matches();
         $newmatch->team1_id = $request->team1_id ?? 0;
@@ -64,6 +78,7 @@ class AdminController extends Controller
 
         return redirect()->route('tournaments.dash');
     }
+
 
     public function EditMatch(Matches $match) {
         $teams = team::all();

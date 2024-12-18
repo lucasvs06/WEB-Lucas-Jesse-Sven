@@ -83,6 +83,4 @@ Route::post('admin/matches/edit/{match}', [AdminController::class, 'UpdateMatch'
 Route::delete('admin/matches/{match}', [AdminController::class, 'DestroyMatch'])->name('match.destroy');
 
 
-
-
 require __DIR__.'/auth.php';
